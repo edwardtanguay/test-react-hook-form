@@ -1,10 +1,11 @@
 body {
 	background: #333;
 	color: #ccc;
-	padding: 0 20px;
+	padding: 20px;
 
 	h1 {
 		color: rgb(226, 226, 151);
+		margin: 0;
 	}
 
 	form {
@@ -26,5 +27,20 @@ body {
 		background: #444;
 		padding: 1px 10px;
 		margin: 20px 0 0 0;
+	}
+
+	p {
+		margin: 0;
+		font-size: .9rem;
+	}
+
+	.intro {
+		margin: 0 0 10px 0;
+		code {
+			color: rgb(87, 165, 42);
+			font-family: 'Courier New', Courier, monospace;
+			font-weight: bold;
+			background: #222;
+		}
 	}
 }

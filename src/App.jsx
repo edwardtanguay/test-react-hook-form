@@ -1,21 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import './App.scss'
 
 function App() {
 	const [formData, setFormData] = useState({});
-	const { register, handleSubmit, formState: { errors } } = useForm({
+	const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm({
 		defaultValues: {
 			department: 'Sales'
 		}
 	});
 
-	console.log('errors', errors);
+	useEffect(() => {
+		const firstName = watch('firstName');
+		if (firstName === '/nk') {
+			setValue('firstName', 'Nick');
+			setValue('lastName', 'Kronkatch');
+		}
+	}, [watch('firstName')])
 
 	return (
 		<div className="App">
 			<h1>Info Site</h1>
-			<p>Welcome to this site.</p>
+
+			<div className="intro">
+				<p>Please fill out form.</p>
+				<p>Tip: for "Nick Kronkatch", type in first name field: <code>/nk</code></p>
+			</div>
 
 			<form onSubmit={handleSubmit((data) => {
 				setFormData(data);
